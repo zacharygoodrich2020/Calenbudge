@@ -1,43 +1,47 @@
-# CalderBudget AI Clone — Working MVP (today)
+# Calenbudge
 
-I converted the plan into a **runnable backend MVP** using Python stdlib + SQLite so you can ship same-day without waiting on heavy setup.
+This repository now includes:
+- A Python backend MVP (`app.py`)
+- A React + TypeScript + Tailwind frontend dashboard (`frontend/`) for calendar-style balance projection
 
-## Included now
-- Finance APIs: transactions, budgets, summary
-- AI APIs: chat endpoint, affordability check
-- Agent workflow: propose actions, approve/reject, execute budget update
-- Audit events for key actions
+## Frontend features implemented
+- Dark, minimalist dashboard layout
+- Accounts panel (add account + inline balance editing)
+- Transactions panel (add/delete transactions)
+- Real projection engine that sorts by date and computes running balance
+- Timeline view with negative balance highlighting and lowest-point highlighting
+- Summary cards for current total, lowest projected, and safe-to-spend
 
-## Run
+## Frontend file structure
+
+```text
+frontend/
+  index.html
+  package.json
+  postcss.config.js
+  tailwind.config.js
+  tsconfig.json
+  vite.config.ts
+  src/
+    App.tsx
+    main.tsx
+    styles.css
+```
+
+## Run frontend
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Vite will print a local URL (typically `http://localhost:5173`).
+
+## Run backend
 
 ```bash
 python app.py
 ```
 
-Server starts at `http://127.0.0.1:8000`.
-
-## Example calls
-
-```bash
-curl -X POST http://127.0.0.1:8000/api/transactions \
-  -H 'content-type: application/json' \
-  -d '{"amount":5000,"type":"income","merchant":"Employer","happened_on":"2026-03-05"}'
-
-curl 'http://127.0.0.1:8000/api/summary?month=2026-03'
-
-curl -X POST http://127.0.0.1:8000/api/ai/affordability-check \
-  -H 'content-type: application/json' \
-  -d '{"amount":1200,"month":"2026-03"}'
-```
-
-## Test
-
-```bash
-python -m pytest -q
-```
-
-## Now what
-1. Add a lightweight frontend (Next.js/Vite) that calls these endpoints.
-2. Swap chat parser for your LLM provider with strict tool-calling.
-3. Add auth + per-user data isolation.
-4. Deploy for demo.
+Backend starts on `http://127.0.0.1:8000`.
