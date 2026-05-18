@@ -1,0 +1,118 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--z-modals) - 5);
+  pointer-events: none;
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 360px;
+  height: calc(100vh - 40px);
+  background: var(--win-surface);
+  border-left: 2px solid #ffffff;
+  border-top: 2px solid #ffffff;
+  border-bottom: 2px solid #1a1a3a;
+  outline: 1px solid #5a5aff;
+  box-shadow: -4px 0 0px rgba(90, 90, 255, 0.4);
+  z-index: calc(var(--z-modals) - 5);
+  display: flex;
+  flex-direction: column;
+  animation: slideInRight 0.2s ease-out;
+  pointer-events: all;
+  overflow: hidden;
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.titlebar {
+  background: var(--win-titlebar);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 6px;
+  height: 26px;
+  flex-shrink: 0;
+}
+
+.title {
+  font-family: 'VT323', monospace;
+  font-size: 16px;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+.closeBtn {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  width: 16px;
+  height: 14px;
+  background: var(--win-surface);
+  color: var(--win-text);
+  border-top: 1px solid #ffffff;
+  border-left: 1px solid #ffffff;
+  border-bottom: 1px solid #1a1a3a;
+  border-right: 1px solid #1a1a3a;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.sectionTitle {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  color: var(--win-text-dim);
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.balanceRow {
+  display: flex;
+  gap: 6px;
+  align-items: flex-end;
+}
+
+.txnList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* mobile bottom sheet */
+@media (max-width: 767px) {
+  .drawer {
+    top: auto;
+    bottom: 40px;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 80vh;
+    max-height: 80vh;
+    border-top: 2px solid #ffffff;
+    border-left: none;
+    border-right: none;
+    animation: slideInUp 0.2s ease-out;
+  }
+
+  @keyframes slideInUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+  }
+}

@@ -1,0 +1,80 @@
+.window {
+  background: var(--win-surface);
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-bottom: 2px solid #1a1a3a;
+  border-right: 2px solid #1a1a3a;
+  outline: 1px solid #5a5aff;
+  box-shadow: 4px 4px 0px rgba(90, 90, 255, 0.4);
+  z-index: var(--z-windows);
+  animation: windowOpen 0.15s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes windowOpen {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.titlebar {
+  background: var(--win-titlebar);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 6px;
+  height: 26px;
+  user-select: none;
+}
+
+.title {
+  font-family: 'VT323', monospace;
+  font-size: 16px;
+  color: #ffffff;
+  letter-spacing: 1px;
+  flex: 1;
+}
+
+.controls {
+  display: flex;
+  gap: 2px;
+}
+
+.controlBtn {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  width: 16px;
+  height: 14px;
+  background: var(--win-surface);
+  color: var(--win-text);
+  border-top: 1px solid #ffffff;
+  border-left: 1px solid #ffffff;
+  border-bottom: 1px solid #1a1a3a;
+  border-right: 1px solid #1a1a3a;
+  cursor: default;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 1;
+}
+
+.body {
+  padding: 12px;
+  position: relative;
+}
+
+.body::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
+  pointer-events: none;
+  z-index: var(--z-scanlines);
+}
