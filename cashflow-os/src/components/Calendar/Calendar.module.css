@@ -1,0 +1,188 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.navBtn {
+  font-family: var(--font-pixel);
+  font-size: 11px;
+  padding: 8px 12px;
+  background: var(--win-bg);
+  color: var(--win-text);
+  border-top: 2px solid var(--win-border-hi);
+  border-left: 2px solid var(--win-border-hi);
+  border-bottom: 2px solid var(--win-border-sh);
+  border-right: 2px solid var(--win-border-sh);
+  outline: 1px solid var(--win-border);
+  cursor: pointer;
+  transition: background 120ms, box-shadow 120ms, transform 120ms;
+}
+
+.navBtn:hover {
+  background: var(--win-accent);
+  color: #ffffff;
+  box-shadow: 0 0 12px var(--win-accent);
+}
+
+.navBtn:active {
+  transform: translateY(1px);
+}
+
+.monthLabel {
+  font-family: var(--font-display);
+  font-size: 22px;
+  min-width: 200px;
+  text-align: center;
+}
+
+.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.weekday {
+  font-family: var(--font-label);
+  font-size: 10px;
+  color: var(--win-text-dim);
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.cell {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--win-bg);
+  border-top: 2px solid var(--win-border-hi);
+  border-left: 2px solid var(--win-border-hi);
+  border-bottom: 2px solid var(--win-border-sh);
+  border-right: 2px solid var(--win-border-sh);
+  outline: 1px solid var(--win-border);
+  padding: 4px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.cell:hover .tooltip {
+  display: block;
+}
+
+.cellInteractive:hover {
+  box-shadow: 0 0 10px var(--win-accent);
+}
+
+.cellOutside {
+  opacity: 0.25;
+  cursor: default;
+  pointer-events: none;
+}
+
+.cellPast {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.cellToday {
+  border-top: none;
+}
+
+.todayBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: var(--win-titlebar);
+}
+
+.dayNumber {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--win-text-dim);
+  align-self: flex-start;
+}
+
+.balance {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: clamp(11px, 2.6vw, 18px);
+  text-align: center;
+  word-break: break-all;
+}
+
+.balance.green {
+  color: var(--win-green);
+}
+
+.balance.yellow {
+  color: var(--win-yellow);
+}
+
+.balance.red {
+  color: var(--win-red);
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  font-size: 10px;
+  line-height: 1;
+}
+
+.tooltip {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 160px;
+  background: var(--win-surface);
+  border-top: 2px solid var(--win-border-hi);
+  border-left: 2px solid var(--win-border-hi);
+  border-bottom: 2px solid var(--win-border-sh);
+  border-right: 2px solid var(--win-border-sh);
+  outline: 1px solid var(--win-border);
+  box-shadow: 4px 4px 0px rgba(90, 90, 255, 0.4);
+  padding: 6px 8px;
+  font-size: 11px;
+  z-index: var(--z-modals);
+  pointer-events: none;
+  text-align: left;
+}
+
+.tooltipRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+@media (max-width: 767px) {
+  .dayNumber {
+    font-size: 9px;
+  }
+
+  .icons {
+    font-size: 8px;
+  }
+
+  .tooltip {
+    display: none !important;
+  }
+}

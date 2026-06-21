@@ -1,0 +1,80 @@
+.window {
+  width: 100%;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  background: var(--win-bg);
+  border-top: 2px solid var(--win-border-hi);
+  border-left: 2px solid var(--win-border-hi);
+  border-bottom: 2px solid var(--win-border-sh);
+  border-right: 2px solid var(--win-border-sh);
+  outline: 1px solid var(--win-border);
+}
+
+.icon {
+  font-size: 16px;
+}
+
+.name {
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+.date {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--win-text-dim);
+}
+
+.amount {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 13px;
+  text-align: right;
+  min-width: 70px;
+}
+
+.amount.positive {
+  color: var(--win-green);
+}
+
+.amount.negative {
+  color: var(--win-red);
+}
+
+.balanceAfter {
+  font-family: var(--font-display);
+  font-size: 12px;
+  color: var(--win-text-dim);
+  grid-column: 1 / -1;
+  text-align: right;
+}
+
+.empty {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--win-text-dim);
+  text-align: center;
+  padding: 16px;
+}
+
+@media (max-width: 767px) {
+  .item {
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .date {
+    display: none;
+  }
+}

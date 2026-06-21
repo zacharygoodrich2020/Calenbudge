@@ -1,0 +1,7 @@
+:root {
+  --z-desktop: 0;
+  --z-windows: 10;
+  --z-taskbar: 50;
+  --z-modals: 100;
+  --z-scanlines: 1; /* MUST be 1 — never 999 */
+}

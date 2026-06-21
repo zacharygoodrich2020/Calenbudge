@@ -1,0 +1,132 @@
+@import './styles/_zindex.css';
+
+:root {
+  --win-bg: #0a0a12;
+  --win-surface: #12121f;
+  --win-border: #5a5aff;
+  --win-border-hi: #ffffff;
+  --win-border-sh: #1a1a3a;
+  --win-titlebar: linear-gradient(90deg, #0000c8 0%, #5a5aff 100%);
+  --win-accent: #5a5aff;
+  --win-accent-2: #00ffcc;
+  --win-danger: #ff3b3b;
+  --win-text: #e8e8ff;
+  --win-text-dim: #6666aa;
+  --win-green: #00ffcc;
+  --win-red: #ff3b3b;
+  --win-yellow: #ffe44d;
+
+  --font-display: 'VT323', monospace;
+  --font-pixel: 'Press Start 2P', monospace;
+  --font-mono: 'IBM Plex Mono', monospace;
+  --font-label: 'Silkscreen', monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--win-bg);
+  color: var(--win-text);
+  font-family: var(--font-mono);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+button,
+input,
+select {
+  font-family: var(--font-mono);
+}
+
+.desktop {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--win-bg);
+  background-image: radial-gradient(circle, rgba(90, 90, 255, 0.18) 1px, transparent 1px);
+  background-size: 24px 24px;
+  z-index: var(--z-desktop);
+  padding: 24px;
+  padding-bottom: 72px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (max-width: 767px) {
+  .desktop {
+    padding: 12px;
+    padding-bottom: 64px;
+  }
+}
+
+/* Whole-page scanline overlay. z-index pinned to var(--z-scanlines) = 1, never blocks input. */
+.scanlines {
+  position: relative;
+}
+
+.scanlines::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
+  pointer-events: none;
+  z-index: var(--z-scanlines);
+}
+
+/* Raised bevel — windows, default buttons */
+.bevel-raised {
+  border-top: 2px solid var(--win-border-hi);
+  border-left: 2px solid var(--win-border-hi);
+  border-bottom: 2px solid var(--win-border-sh);
+  border-right: 2px solid var(--win-border-sh);
+  outline: 1px solid var(--win-border);
+}
+
+/* Sunken bevel — inputs, pressed buttons */
+.bevel-sunken {
+  border-top: 2px solid var(--win-border-sh);
+  border-left: 2px solid var(--win-border-sh);
+  border-bottom: 2px solid var(--win-border-hi);
+  border-right: 2px solid var(--win-border-hi);
+  outline: 1px solid var(--win-border);
+}
+
+@keyframes window-open {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes balance-flash {
+  0% {
+    filter: brightness(2.2);
+  }
+  100% {
+    filter: brightness(1);
+  }
+}
+
+@media (max-width: 767px) {
+  .hide-on-mobile {
+    display: none !important;
+  }
+}

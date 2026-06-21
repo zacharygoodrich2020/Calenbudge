@@ -1,0 +1,29 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-modals);
+  padding: 16px;
+}
+
+.window {
+  width: 100%;
+  max-width: 420px;
+}
+
+.small {
+  max-width: 320px;
+}
+
+@media (max-width: 767px) {
+  .overlay {
+    align-items: flex-end;
+  }
+
+  .window {
+    max-width: 100%;
+  }
+}
