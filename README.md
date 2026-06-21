@@ -1,6 +1,22 @@
 # Calenbudge
 
-This repository now includes:
+## CashFlow OS (live app)
+
+A standalone, no-backend cash flow calendar/planner — enter your balance and bills, see your projected balance up to 12 months out. All data stays in your browser's `localStorage`.
+
+**Live:** https://zacharygoodrich2020.github.io/Calenbudge/
+
+Source: [`cashflow-os/`](./cashflow-os). To run it locally:
+
+```bash
+cd cashflow-os
+npm install
+npm run dev
+```
+
+---
+
+This repository also includes an earlier, separate prototype:
 - A Python backend MVP (`app.py`)
 - A React + TypeScript + Tailwind frontend dashboard (`frontend/`) for calendar-style balance projection
 
