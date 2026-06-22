@@ -1,0 +1,73 @@
+.taskbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: var(--win-surface);
+  border-top: 2px solid #ffffff;
+  border-bottom: 2px solid #1a1a3a;
+  outline: 1px solid #5a5aff;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  gap: 8px;
+  z-index: var(--z-taskbar);
+}
+
+.startBtn {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  padding: 4px 10px;
+  background: var(--win-surface);
+  color: var(--win-text);
+  cursor: pointer;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-bottom: 2px solid #1a1a3a;
+  border-right: 2px solid #1a1a3a;
+  outline: 1px solid #5a5aff;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.startBtn:hover {
+  background: var(--win-accent);
+  box-shadow: 0 0 8px var(--win-accent);
+}
+
+.windowTab {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  padding: 4px 10px;
+  background: var(--win-accent);
+  color: #fff;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  border-top: 2px solid #1a1a3a;
+  border-left: 2px solid #1a1a3a;
+  border-bottom: 2px solid #ffffff;
+  border-right: 2px solid #ffffff;
+  outline: 1px solid #5a5aff;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.clock {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: var(--win-text);
+  padding: 4px 10px;
+  border-top: 2px solid #1a1a3a;
+  border-left: 2px solid #1a1a3a;
+  border-bottom: 2px solid #ffffff;
+  border-right: 2px solid #ffffff;
+  outline: 1px solid #5a5aff;
+  min-width: 70px;
+  text-align: center;
+}

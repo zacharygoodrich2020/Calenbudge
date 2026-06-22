@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&family=IBM+Plex+Mono:wght@400;500;700&family=Press+Start+2P&family=Silkscreen&display=swap');
+
+:root {
+  --win-bg: #0a0a12;
+  --win-surface: #12121f;
+  --win-border: #5a5aff;
+  --win-border-hi: #ffffff;
+  --win-border-sh: #1a1a3a;
+  --win-titlebar: linear-gradient(90deg, #0000c8 0%, #5a5aff 100%);
+  --win-accent: #5a5aff;
+  --win-accent-2: #00ffcc;
+  --win-danger: #ff3b3b;
+  --win-text: #e8e8ff;
+  --win-text-dim: #6666aa;
+  --win-green: #00ffcc;
+  --win-red: #ff3b3b;
+  --win-yellow: #ffe44d;
+
+  --z-desktop: 0;
+  --z-windows: 10;
+  --z-taskbar: 50;
+  --z-modals: 100;
+  --z-scanlines: 1;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  font-family: 'IBM Plex Mono', monospace;
+  color: var(--win-text);
+  background: var(--win-bg);
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.desktop {
+  position: relative;
+  min-height: 100vh;
+  background-color: var(--win-bg);
+  background-image: radial-gradient(circle, rgba(90,90,255,0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+  padding: 16px;
+  padding-bottom: 60px;
+  z-index: var(--z-desktop);
+  overflow: hidden;
+}
+
+.desktop::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
+  pointer-events: none;
+  z-index: var(--z-scanlines);
+}
+
+/* Bevel utilities */
+.bevel-raised {
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-bottom: 2px solid #1a1a3a;
+  border-right: 2px solid #1a1a3a;
+  outline: 1px solid #5a5aff;
+}
+
+.bevel-sunken {
+  border-top: 2px solid #1a1a3a;
+  border-left: 2px solid #1a1a3a;
+  border-bottom: 2px solid #ffffff;
+  border-right: 2px solid #ffffff;
+  outline: 1px solid #5a5aff;
+}
+
+/* Win98-style button */
+.win-btn {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  padding: 6px 12px;
+  background: var(--win-surface);
+  color: var(--win-text);
+  cursor: pointer;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-bottom: 2px solid #1a1a3a;
+  border-right: 2px solid #1a1a3a;
+  outline: 1px solid #5a5aff;
+  transition: background 0.1s;
+  white-space: nowrap;
+}
+
+.win-btn:hover {
+  background: var(--win-accent);
+  color: #fff;
+  box-shadow: 0 0 12px var(--win-accent);
+}
+
+.win-btn:active {
+  border-top: 2px solid #1a1a3a;
+  border-left: 2px solid #1a1a3a;
+  border-bottom: 2px solid #ffffff;
+  border-right: 2px solid #ffffff;
+  transform: translateY(1px);
+}
+
+.win-btn-accent2 {
+  color: var(--win-accent-2);
+  outline-color: var(--win-accent-2);
+}
+
+.win-btn-accent2:hover {
+  background: var(--win-accent-2);
+  color: #000;
+  box-shadow: 0 0 12px var(--win-accent-2);
+}
+
+.win-btn-danger {
+  background: var(--win-danger);
+  color: #fff;
+  outline-color: var(--win-danger);
+}
+
+.win-btn-danger:hover {
+  box-shadow: 0 0 12px var(--win-danger);
+}
+
+/* Win98-style input */
+.win-input {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  padding: 6px 10px;
+  background: #080810;
+  color: var(--win-accent-2);
+  width: 100%;
+  border-top: 2px solid #1a1a3a;
+  border-left: 2px solid #1a1a3a;
+  border-bottom: 2px solid #ffffff;
+  border-right: 2px solid #ffffff;
+  outline: 1px solid #5a5aff;
+}
+
+.win-input:focus {
+  outline: 1px solid var(--win-accent-2);
+  box-shadow: 0 0 6px rgba(0, 255, 204, 0.3);
+}
+
+.win-select {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  padding: 6px 10px;
+  background: #080810;
+  color: var(--win-accent-2);
+  width: 100%;
+  border-top: 2px solid #1a1a3a;
+  border-left: 2px solid #1a1a3a;
+  border-bottom: 2px solid #ffffff;
+  border-right: 2px solid #ffffff;
+  outline: 1px solid #5a5aff;
+  cursor: pointer;
+}

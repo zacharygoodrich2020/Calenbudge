@@ -1,0 +1,193 @@
+.calendarWindow {
+  margin-bottom: 16px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.mainHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.balanceArea {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.currentBalance {
+  font-family: 'VT323', monospace;
+  font-size: 32px;
+  color: var(--win-accent-2);
+}
+
+.lowestStat {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  padding: 4px 8px;
+  background: rgba(0,0,0,0.4);
+  border: 1px solid var(--win-yellow);
+}
+
+.lowestStatDanger {
+  border-color: var(--win-red);
+}
+
+.lowestLabel {
+  color: var(--win-text-dim);
+  font-size: 9px;
+  display: block;
+  font-family: 'Press Start 2P', monospace;
+  margin-bottom: 2px;
+}
+
+.lowestAmount {
+  font-size: 13px;
+}
+
+.btnRow {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.monthNav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.monthTitle {
+  font-family: 'VT323', monospace;
+  font-size: 24px;
+  color: var(--win-text);
+  min-width: 160px;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px;
+}
+
+.dayHeader {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: var(--win-text-dim);
+  text-align: center;
+  padding: 4px 2px;
+}
+
+.dayCell {
+  min-height: 72px;
+  background: var(--win-surface);
+  border-top: 1px solid #ffffff;
+  border-left: 1px solid #ffffff;
+  border-bottom: 1px solid #1a1a3a;
+  border-right: 1px solid #1a1a3a;
+  outline: 1px solid rgba(90,90,255,0.4);
+  padding: 4px;
+  cursor: pointer;
+  position: relative;
+  transition: outline 0.1s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dayCell:hover {
+  outline: 1px solid var(--win-accent);
+  z-index: 2;
+}
+
+.dayCellPast {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.dayCellPast:hover {
+  outline: 1px solid rgba(90,90,255,0.4);
+}
+
+.dayCellToday .todayBar {
+  display: block;
+}
+
+.todayBar {
+  display: block;
+  height: 4px;
+  background: var(--win-titlebar);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.dayCellEmpty {
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: default;
+}
+
+.dayCellEmpty:hover {
+  outline: none;
+}
+
+.dayNum {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: var(--win-text-dim);
+  align-self: flex-start;
+  margin-bottom: 4px;
+}
+
+.dayBalance {
+  font-family: 'VT323', monospace;
+  font-size: 18px;
+  text-align: center;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.balanceGreen { color: var(--win-green); }
+.balanceYellow { color: var(--win-yellow); }
+.balanceRed { color: var(--win-red); }
+
+.dayIcons {
+  font-size: 10px;
+  display: flex;
+  gap: 1px;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-height: 12px;
+}
+
+@media (max-width: 600px) {
+  .dayCell {
+    min-height: 52px;
+    padding: 2px;
+  }
+  .dayBalance {
+    font-size: 14px;
+  }
+  .dayNum {
+    font-size: 6px;
+  }
+  .dayIcons {
+    display: none;
+  }
+}
